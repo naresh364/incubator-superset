@@ -47,6 +47,7 @@
 
     {% endblock %}
 
+
     {% with filename="theme" %}
       {% include "superset/partials/_script_tag.html" %}
     {% endwith %}
@@ -57,6 +58,10 @@
       id="csrf_token"
       value="{{ csrf_token() if csrf_token else '' }}"
     >
+    {% if standalone_mode %}
+    <style>.dashboard-header {display:none;}</style>
+    {% endif %}
+
   </head>
 
   <body {% if standalone_mode %}class="standalone"{% endif %}>
