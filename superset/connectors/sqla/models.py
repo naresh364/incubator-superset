@@ -144,7 +144,7 @@ class TableColumn(Model, BaseColumn):
     export_parent = "table"
 
     def get_sqla_col(self, label: Optional[str] = None) -> Column:
-        label = label or self.column_name
+        label = label or self.verbose_name
         if not self.expression:
             db_engine_spec = self.table.database.db_engine_spec
             type_ = db_engine_spec.get_sqla_column_type(self.type)
