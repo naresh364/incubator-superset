@@ -210,6 +210,21 @@ class HeaderActionsDropdown extends React.PureComponent {
           triggerNode={<span>{t('Share dashboard')}</span>}
         />
 
+        <URLShortLinkModal
+          url={getDashboardUrl(
+            window.location.pathname,
+            this.props.filters,
+            window.location.hash,
+            true,
+          )}
+          emailSubject={emailSubject}
+          emailContent={emailBody}
+          addDangerToast={this.props.addDangerToast}
+          isMenuItem
+          triggerNode={<span>{t('Standalone dashboard')}</span>}
+        />
+
+
         {editMode && (
           <CssEditor
             triggerNode={<span>{t('Edit CSS')}</span>}

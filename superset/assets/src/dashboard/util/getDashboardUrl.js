@@ -18,8 +18,10 @@
  */
 /* eslint camelcase: 0 */
 
-export default function getDashboardUrl(pathname, filters = {}, hash = '') {
+export default function getDashboardUrl(pathname, filters = {}, hash = '', stand_alone = false) {
   const preselect_filters = encodeURIComponent(JSON.stringify(filters));
   const hashSection = hash ? `#${hash}` : '';
-  return `${pathname}?preselect_filters=${preselect_filters}${hashSection}`;
+  const sa = stand_alone ? '&standalone=true' : ''
+  return `${pathname}?preselect_filters=${preselect_filters}${sa}${hashSection}`;
 }
+
